@@ -12,7 +12,6 @@ public class PaymentScreen extends PageBase {
 	}
 
 	// Detecting Elements from the UI in the screen
-
 	@FindBy(xpath = "//*[@class='page-heading']")
 	private WebElement paymentHeader;
 

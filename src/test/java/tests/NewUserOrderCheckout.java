@@ -18,7 +18,6 @@ import utilities.Helper;
 
 public class NewUserOrderCheckout extends TestBase {
 
-	// ------------------------------------------------------------------------------
 	// Objects declaration
 	// ------------------------------------------------------------------------------
 	HomePage homePageObject = null;
@@ -30,39 +29,11 @@ public class NewUserOrderCheckout extends TestBase {
 	ShippingScreen ShippingScreenObject = null;
 	PaymentScreen PaymentScreenObject = null;
 
-	// static String FailureReason_main = "";
-	// ------------------------------------------------------------------------------
-	/*
-	 * String gender = "Mrs"; String firstname = "Tester FN"; String lastname =
-	 * "Tester LN"; String email = "sherif.121212@test.com"; String password =
-	 * "1234567"; String birthDay = "17"; String birthMonth = "5"; String
-	 * birthYear = "1993"; String secondFN = "FirstName address"; String
-	 * secondLN = "LastName address"; String address = "Any address here";
-	 * String city = "NewCity"; String state = "Alabama"; String code = "11111";
-	 * String country = "United States"; String mobile = "01001111111"; String
-	 * aliasAddress = "Alias address Here";
-	 */
-	// variable for the expected product add title txt
-	// String expCreateHDR_TC2 = "CREATE AN ACCOUNT";
-	/*
-	 * String expAuthDes_TC3 =
-	 * "Welcome to your account. Here you can manage all of your personal information and orders."
-	 * ; String expProdTitle_TC4 =
-	 * "Product successfully added to your shopping cart"; String
-	 * expCartCount_TC4 = "Your shopping cart contains: 1 Product"; String
-	 * expShp_TC5 = "Choose a shipping option for this address: "; String
-	 * expPay_TC5 = "PLEASE CHOOSE YOUR PAYMENT METHOD"; String expConf_TC6 =
-	 * "BANK-WIRE PAYMENT."; String expectedComp_TC6 =
-	 * "You order on My Store is complete.";
-	 */// ------------------------------------------------------------------------------
-
 	// Excel sheet path and PreCondition
 	// ------------------------------------------------------------------------------
 	String testDataPath = System.getProperty("user.dir") + "/TestData/Data.xlsx";
-	// static String sheetName = "Sheet4";
 	static String Sheet_email = "Sheet_email";
 	static String Sheet_AuthData = "Sheet_AuthData";
-	String demoEmail = null;
 
 	// Get data from the sheet in the excel file
 	@DataProvider(name = "Sheet_email")
@@ -78,9 +49,7 @@ public class NewUserOrderCheckout extends TestBase {
 		return ExcelReader.loadTestData(testDataPath, Sheet_AuthData);
 	}
 	// ------------------------------------------------------------------------------
-
 	// Objects Initialization
-	// ------------------------------------------------------------------------------
 
 	@BeforeClass
 	public void initPageObject() {
@@ -92,32 +61,28 @@ public class NewUserOrderCheckout extends TestBase {
 		PaymentScreenObject = new PaymentScreen(driver);
 		AddressScreenObject = new AddressScreen(driver);
 		ShippingScreenObject = new ShippingScreen(driver);
-
 	}
-	// ------------------------------------------------------------------------------
 
+	// ------------------------------------------------------------------------------
 	// Test-case to check the redirection of the desired URLs
-	@Test(priority = 1, enabled = true, description = "Check the redirection of the URL", dataProvider = "Sheet_email")
-	public void Check_Website_Redirection(String email) {
-		// String FailureReason = "";
+	@Test(priority = 1, enabled = true, description = "Check the redirection of the URL")
+	public void Check_Website_Redirection() {
 		try {
 
-			// Get the actual values from the web-site
+			// Open the web-site
 			OpenURL(ExpectedDataDriven.websiteURL);
 
-			String ActualPageURL = helperObject.getActualPageURL(ExpectedDataDriven.websiteURL);
-			String ActualPageTitle = helperObject.getActualPageTitle(ExpectedDataDriven.webSiteTitle);
+			// Get the actual values from the web-site
+			String ActualPageURL = helperObject.getActualPageURL();
+			String ActualPageTitle = helperObject.getActualPageTitle();
 
-			// In-case of failure, Write into the report
-			// FailureReason = " Actual WebSite: " + ActualPageURL + " &
-			// Expected WebSite: " + WebURL;
-			// FailureReason_main = FailureReason;
-
-			reportLog("WebsiteURL",ActualPageURL, ExpectedDataDriven.websiteURL);
-			reportLog("PageTitle",ActualPageTitle, ExpectedDataDriven.webSiteTitle);
+			// Log the status into the test report
+			reportLog("WebsiteURL", ActualPageURL, ExpectedDataDriven.websiteURL);
+			reportLog("PageTitle", ActualPageTitle, ExpectedDataDriven.webSiteTitle);
 
 			// Validation - Proper URL redirection
 			Assert.assertEquals(ActualPageURL, ExpectedDataDriven.websiteURL);
+
 			// Validation - Proper Page Title displayed
 			Assert.assertEquals(ActualPageTitle, ExpectedDataDriven.webSiteTitle);
 
@@ -129,40 +94,31 @@ public class NewUserOrderCheckout extends TestBase {
 	}
 
 	// Test-Case to register and proceed with the registered data
-	@Test(priority = 2, enabled = false, dependsOnMethods = "Check_Website_Redirection", dataProvider = "Sheet_url_email")
-	public void Check_AccountCreation_Successfully(String URL, String email) {
-		// String FailureReason = "";
+	@Test(priority = 2, enabled = false, dependsOnMethods = "Check_Website_Redirection", dataProvider = "Sheet_email")
+	public void Check_AccountCreation_Successfully(String email) {
 
 		// 1. Create a new account user
 		// create a new account user with specific email from the excel sheet
-		homePageObject.createNewAccountUser(demoEmail);
+		homePageObject.createNewAccountUser(email);
 
 		// Validate authentication page opened successfully
-		String actualCreateHDR_TC2 = createAccountPageObject.validatePageHeader(demoEmail);
-		// In-case of failure, Write into the report
-		// FailureReason = " Actual: " + actualCreateHDR_TC2 + " & Expected
-		// WebSite: " + expCreateHDR_TC2;
-		// FailureReason_main = FailureReason;
-		reportLog("CreationHeader",actualCreateHDR_TC2, ExpectedDataDriven.expCreateHDR_TC2);
+		String actualCreateHDR_TC2 = createAccountPageObject.validatePageHeader(email);
+		reportLog("CreationHeader", actualCreateHDR_TC2, ExpectedDataDriven.expCreateHDR_TC2);
 		Assert.assertEquals(actualCreateHDR_TC2, ExpectedDataDriven.expCreateHDR_TC2);
 	}
 
 	// Test-Case to register and proceed with the registered data
 	@Test(priority = 3, enabled = false, dependsOnMethods = "Check_AccountCreation_Successfully", dataProvider = "Sheet_AuthData")
-	public void Check_Register_Successfully(String gender, String firstname, String lastname, String demoemail,
-			String password, String address, String city, String state, String country, String aliasAddress,
-			String birthDay, String birthMonth, String birthYear, String secondFN, String secondLN, String code,
-			String mobile) {
-		this.demoEmail = demoemail;
-		// String FailureReason = "";
+	public void Check_Register_Successfully(String gender, String firstname, String lastname, String password,
+			String address, String city, String state, String country, String aliasAddress, String birthDay,
+			String birthMonth, String birthYear, String secondFN, String secondLN, String code, String mobile) {
 		// 2. Authenticate as new user
 		// Fill user's data to authenticate as a new user
-		createAccountPageObject.AuthenticateUser(gender, firstname, lastname, password, birthDay, birthMonth, birthYear,
-				secondFN, secondLN, address, city, state, code, country, mobile, aliasAddress);
+		createAccountPageObject.AuthenticateUser(gender, firstname, lastname, password, address, city, state, country,
+				aliasAddress, birthDay, birthMonth, birthYear, secondFN, secondLN, code, mobile);
 
 		// Validate My Account screen is displayed
 		String actualAuthDesc_TC3 = myAccountPageObject.validateMyAccountNavigation();
-
 		Assert.assertEquals(actualAuthDesc_TC3, ExpectedDataDriven.expAuthDes_TC3);
 
 	}
@@ -187,9 +143,9 @@ public class NewUserOrderCheckout extends TestBase {
 	}
 
 	@Test(priority = 5, enabled = false, dependsOnMethods = "Check_Product_Selection", dataProvider = "Sheet_AuthData")
-	public void Order_Checkout(String gender, String firstname, String lastname, String demoemail, String password,
-			String birthDay, String birthMonth, String birthYear, String secondFN, String secondLN, String address,
-			String city, String state, String code, String country, String mobile, String aliasAddress) {
+	public void Order_Checkout(String gender, String firstname, String lastname, String password, String address,
+			String city, String state, String country, String aliasAddress, String birthDay, String birthMonth,
+			String birthYear, String secondFN, String secondLN, String code, String mobile) {
 
 		// 5. Follow checkout procedure
 		// 6. Confirm order by selecting bank wire option

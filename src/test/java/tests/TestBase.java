@@ -26,12 +26,6 @@ public class TestBase {
 	public static ExtentTest logger;
 	static String FailureReason_main = "";
 
-	// Get data from the property manager class and get the values from the
-	// properties file
-	///String baseURL = PropertyManager.getInstance().getExpectedURL();
-	///String browserName = PropertyManager.getInstance().getExpectedBrowserName();
-	///String OS = PropertyManager.getInstance().getExpectedOS();
-
 	// Locate report file
 	String ReportfolderPath = System.getProperty("user.dir") + "/TestReport/Report" + Helper.getCurrentTime() + ".html";
 
@@ -107,13 +101,7 @@ public class TestBase {
 						System.getProperty("user.dir") + "/drivers/geckodriver_linux");
 				driver = new FirefoxDriver();
 			}
-
 		}
-
-		// driver.manage().window().maximize();
-		// Helper.sleepThreeSeconds();
-		// driver.navigate().to(baseURL);
-		// Helper.OpenURL();
 	}
 
 	// Close the driver

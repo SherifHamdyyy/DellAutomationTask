@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="6273" started-at="2022-01-22T14:57:05Z" finished-at="2022-01-22T14:57:11Z">
+  <suite name="Default suite" duration-ms="34610" started-at="2022-01-23T13:23:55Z" finished-at="2022-01-23T13:24:30Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="6273" started-at="2022-01-22T14:57:05Z" finished-at="2022-01-22T14:57:11Z">
+    <test name="Default test" duration-ms="34610" started-at="2022-01-23T13:23:55Z" finished-at="2022-01-23T13:24:30Z">
       <class name="tests.NewUserOrderCheckout">
-        <test-method status="PASS" signature="Start()[pri:0, instance:tests.NewUserOrderCheckout@1794d431]" name="Start" is-config="true" duration-ms="367" started-at="2022-01-22T16:57:05Z" finished-at="2022-01-22T16:57:05Z">
+        <test-method status="PASS" signature="Start()[pri:0, instance:tests.NewUserOrderCheckout@1794d431]" name="Start" is-config="true" duration-ms="476" started-at="2022-01-23T15:23:55Z" finished-at="2022-01-23T15:23:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Start -->
-        <test-method status="PASS" signature="startDriver()[pri:0, instance:tests.NewUserOrderCheckout@1794d431]" name="startDriver" is-config="true" duration-ms="3126" started-at="2022-01-22T16:57:05Z" finished-at="2022-01-22T16:57:08Z">
+        <test-method status="PASS" signature="startDriver()[pri:0, instance:tests.NewUserOrderCheckout@1794d431]" name="startDriver" is-config="true" duration-ms="31356" started-at="2022-01-23T15:23:55Z" finished-at="2022-01-23T15:24:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startDriver -->
-        <test-method status="PASS" signature="initPageObject()[pri:0, instance:tests.NewUserOrderCheckout@1794d431]" name="initPageObject" is-config="true" duration-ms="65" started-at="2022-01-22T16:57:08Z" finished-at="2022-01-22T16:57:08Z">
+        <test-method status="PASS" signature="initPageObject()[pri:0, instance:tests.NewUserOrderCheckout@1794d431]" name="initPageObject" is-config="true" duration-ms="93" started-at="2022-01-23T15:24:27Z" finished-at="2022-01-23T15:24:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initPageObject -->
-        <test-method status="PASS" signature="setLogs(java.lang.reflect.Method)[pri:0, instance:tests.NewUserOrderCheckout@1794d431]" name="setLogs" is-config="true" duration-ms="3" started-at="2022-01-22T16:57:09Z" finished-at="2022-01-22T16:57:09Z">
+        <test-method status="PASS" signature="setLogs(java.lang.reflect.Method)[pri:0, instance:tests.NewUserOrderCheckout@1794d431]" name="setLogs" is-config="true" duration-ms="4" started-at="2022-01-23T15:24:28Z" finished-at="2022-01-23T15:24:28Z">
           <params>
             <param index="0">
               <value>
@@ -30,7 +30,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setLogs -->
-        <test-method status="FAIL" signature="Check_Website_Redirection(java.lang.String)[pri:1, instance:tests.NewUserOrderCheckout@1794d431]" name="Check_Website_Redirection" duration-ms="1323" started-at="2022-01-22T16:57:09Z" description="Check the redirection of the URL" data-provider="Sheet_email" finished-at="2022-01-22T16:57:10Z">
+        <test-method status="FAIL" signature="Check_Website_Redirection(java.lang.String)[pri:1, instance:tests.NewUserOrderCheckout@1794d431]" name="Check_Website_Redirection" duration-ms="909" started-at="2022-01-23T15:24:28Z" description="Check the redirection of the URL" data-provider="Sheet_email" finished-at="2022-01-23T15:24:28Z">
           <params>
             <param index="0">
               <value>
@@ -40,10 +40,10 @@
           </params>
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[expected [My Store] but found [automationpractice.com]]]>
+              <![CDATA[expected [My Store] but found []]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [My Store] but found [automationpractice.com]
+              <![CDATA[java.lang.AssertionError: expected [My Store] but found []
 	at org.testng.Assert.fail(Assert.java:94)
 	at org.testng.Assert.failNotEquals(Assert.java:513)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
@@ -82,7 +82,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Check_Website_Redirection -->
-        <test-method status="PASS" signature="screenshotOnFailure(org.testng.ITestResult)[pri:0, instance:tests.NewUserOrderCheckout@1794d431]" name="screenshotOnFailure" is-config="true" duration-ms="183" started-at="2022-01-22T16:57:10Z" finished-at="2022-01-22T16:57:10Z">
+        <test-method status="PASS" signature="screenshotOnFailure(org.testng.ITestResult)[pri:0, instance:tests.NewUserOrderCheckout@1794d431]" name="screenshotOnFailure" is-config="true" duration-ms="81" started-at="2022-01-23T15:24:28Z" finished-at="2022-01-23T15:24:29Z">
           <params>
             <param index="0">
               <value>
@@ -93,11 +93,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- screenshotOnFailure -->
-        <test-method status="PASS" signature="exitDriver()[pri:0, instance:tests.NewUserOrderCheckout@1794d431]" name="exitDriver" is-config="true" duration-ms="814" started-at="2022-01-22T16:57:10Z" finished-at="2022-01-22T16:57:11Z">
+        <test-method status="PASS" signature="exitDriver()[pri:0, instance:tests.NewUserOrderCheckout@1794d431]" name="exitDriver" is-config="true" duration-ms="1269" started-at="2022-01-23T15:24:29Z" finished-at="2022-01-23T15:24:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- exitDriver -->
-        <test-method status="PASS" signature="End()[pri:0, instance:tests.NewUserOrderCheckout@1794d431]" name="End" is-config="true" duration-ms="322" started-at="2022-01-22T16:57:11Z" finished-at="2022-01-22T16:57:12Z">
+        <test-method status="PASS" signature="End()[pri:0, instance:tests.NewUserOrderCheckout@1794d431]" name="End" is-config="true" duration-ms="366" started-at="2022-01-23T15:24:30Z" finished-at="2022-01-23T15:24:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- End -->

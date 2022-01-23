@@ -44,9 +44,6 @@ public class PropertyManager {
         os = prop.getProperty("OSName");
         browser = prop.getProperty("browserName");
         WebsiteTitle = prop.getProperty("WebsiteTitle");
-        //myAccoutPageTitle = prop.getProperty("myAccoutPageTitle");  
-      //  LoginURL = prop.getProperty("loginURL");
-        
     }
  
     public String getExpectedURL () {
@@ -64,15 +61,4 @@ public class PropertyManager {
     public String getExpectedWebsiteTitle() {
         return WebsiteTitle;
     }
-    /*
-    public String getExpectedmyAccoutPageTitle() {
-     //   return myAccoutPageTitle;
-    }
-    
-    public String getExpectedLoginURL()
-    {
-        return LoginURL;
-
-    }
-     */
 }

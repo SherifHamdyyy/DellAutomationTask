@@ -12,7 +12,6 @@ public class MyAccountPage extends PageBase {
 	}
 
 	// Detecting Elements from the UI in the screen
-
 	@FindBy(xpath = "//*[@class='info-account']")
 	private WebElement myAccountLabel;
 
@@ -43,7 +42,6 @@ public class MyAccountPage extends PageBase {
 		} catch (Exception e) {
 			printValueOf("Something went wrong After filling creating data for a new account/ My Account page");
 		}
-
 		return actualLabel;
 	}
 
@@ -72,5 +70,4 @@ public class MyAccountPage extends PageBase {
 		waitForElement(proceedBTN);
 		clickButton(proceedBTN);
 	}
-
 }

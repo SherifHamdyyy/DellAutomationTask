@@ -12,7 +12,6 @@ public class HomePage extends PageBase {
 	}
 
 	// Detecting Elements from the UI in HomePage screen
-
 	@FindBy(xpath = "//*[@class='login']")
 	private WebElement signin;
 
@@ -24,15 +23,21 @@ public class HomePage extends PageBase {
 
 	// Method to sign in and create a new random email address
 	public void createNewAccountUser(String email) {
-		waitForElement(signin);
-		clickButton(signin);
-		waitForElement(emailAddressInputField);
-		if (email.isEmpty()) {
-			setText(emailAddressInputField, generateRandomEmail());
-		} else {
-			setText(emailAddressInputField, email);
+		try {
+			waitForElement(signin);
+			clickButton(signin);
+			waitForElement(emailAddressInputField);
+			if (email.isEmpty()) {
+				setText(emailAddressInputField, generateRandomEmail());
+			} else {
+				setText(emailAddressInputField, email);
+			}
+			clickButton(emailAddressCreateAccBtn);
+			
+		} catch (Exception e) {
+			printValueOf("Something written wrong while type email!");
 		}
-		clickButton(emailAddressCreateAccBtn);
+		
 	}
 
 }

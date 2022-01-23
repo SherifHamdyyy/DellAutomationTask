@@ -49,19 +49,19 @@ public class Helper extends TestBase {
 	}
 
 	// Calling Method to get the actual page title
-	public String getActualPageTitle(String ExpectedLoginTabTitle) {
+	public String getActualPageTitle() {
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		String ActualPageTitle = driver.getTitle();
-		System.out.println("ActualPageTitle: [ " + ActualPageTitle + " ] & Expected: [ " + ExpectedLoginTabTitle + " ]");
+		//System.out.println("ActualPageTitle: [ " + ActualPageTitle + " ] & Expected: [ " + ExpectedLoginTabTitle + " ]");
 
 		return ActualPageTitle;
 	}
 
 
 	// Calling Method to get the actual page URL
-	public String getActualPageURL(String ExpectedURL) {
+	public String getActualPageURL() {
 		String ActualPageURL = driver.getCurrentUrl();
-		System.out.println("ActualURL: [ " + ActualPageURL + " ] & Expected: [ " + ExpectedURL + " ]");
+		//System.out.println("ActualURL: [ " + ActualPageURL + " ] & Expected: [ " + ExpectedURL + " ]");
 		return ActualPageURL;
 	}
 }

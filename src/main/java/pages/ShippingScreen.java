@@ -10,7 +10,6 @@ public class ShippingScreen extends PageBase {
 	public ShippingScreen(WebDriver driver) {
 		super(driver);
 	}
-
 	// Detecting Elements from the UI in the screen
 
 	@FindBy(xpath = "//*[@name='processCarrier']")
